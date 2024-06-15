@@ -134,7 +134,7 @@ static string do_format(char *format, va_list arguments) {
 	va_copy(copy, arguments);
 	int size = get_formatted_size(format, copy);
 	char *data = allocate(size + 1);
-	vsprintf(data, format, arguments);
+	size = vsprintf(data, format, arguments);
 	printf("formatted: %s", data);
 	va_end(copy);
 	return (string) {
